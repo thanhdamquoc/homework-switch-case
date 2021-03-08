@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính số ngày</title>
+</head>
+<body>
+<div class="container">
+    <form>
+        <input type="number" id="month-input">
+        <button type="button" id="calc-button">Tính số ngày</button>
+    </form>
+    <p id="result"></p>
+</div>
+</body>
+</html>
+<script>
+    let monthInput = document.getElementById("month-input");
+    let calcButton = document.getElementById("calc-button");
+    let result = document.getElementById("result");
+    let message;
+    calcButton.addEventListener("click",calcDays);
+    function calcDays() {
+        let selectedMonth = parseInt(monthInput.value);
+        switch (selectedMonth) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                message = "31";
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                message = "30";
+                break;
+            case 2:
+                message = "28 hoặc 29";
+                break;
+            default:
+                message = "N/A";
+                break;
+        }
+        debugger
+        result.innerHTML = "Tháng " + selectedMonth + " có " + message + " ngày";
+    }
+</script>
